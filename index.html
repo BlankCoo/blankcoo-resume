@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abel Ukpong — BD & Partnerships | Founder, STEM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d29922;
+    --purple: #bc8cff;
+    --red: #f85149;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Header */
+  .header {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #58a6ff, #bc8cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d1117;
+    flex-shrink: 0;
+  }
+
+  .header-info { flex: 1; min-width: 200px; }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .bio {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    max-width: 540px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .contact-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-links a:hover { text-decoration: underline; }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 2em;
+    border: 1px solid;
+  }
+
+  .badge-blue { color: var(--accent); border-color: #1f6feb; background: #1f2d3d; }
+  .badge-green { color: var(--green); border-color: #238636; background: #12261e; }
+  .badge-purple { color: var(--purple); border-color: #6e40c9; background: #1e1830; }
+  .badge-orange { color: var(--orange); border-color: #9e6a03; background: #27200a; }
+
+  /* Section */
+  .section {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 12px 16px;
+    background: #21262d;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .section-header .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-green { background: var(--green); }
+  .dot-blue { background: var(--accent); }
+  .dot-purple { background: var(--purple); }
+  .dot-orange { background: var(--orange); }
+
+  .section-body { padding: 16px; }
+
+  /* Experience item */
+  .exp-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-item:first-child { padding-top: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .exp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .exp-company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .exp-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 13px;
+    color: #c9d1d9;
+    padding: 2px 0 2px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-size: 11px;
+    top: 4px;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #21262d;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .skill-tag .sk { color: var(--green); font-size: 10px; }
+
+  /* Summary */
+  .summary-text {
+    font-size: 13px;
+    color: #c9d1d9;
+    line-height: 1.7;
+  }
+
+  /* Education */
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .edu-item:first-child { padding-top: 0; }
+
+  .edu-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .edu-sub { font-size: 12px; color: var(--muted); }
+  .edu-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Narrative */
+  .narrative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 6px;
+  }
+
+  .narrative-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: #21262d;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--purple);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 32px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="avatar">AJ</div>
+      <div class="header-info">
+        <h1>Abel Ukpong <span style="font-weight:300;color:var(--muted)">(Blankcoo Jnr)</span></h1>
+        <div class="title">// BD & Partnerships · Founder @ STEM</div>
+        <p class="bio">Web3 BD professional turned founder. 3+ years building partnerships, sourcing deals, and growing ecosystems across DeFi, AI, and gaming verticals. Currently building STEM — the first live streaming platform that pays viewers real money.</p>
+        <div class="contact-links">
+          <a href="mailto:blankcoojnr@gmail.com">📧 blankcoojnr@gmail.com</a>
+          <a href="tel:+2347049172003">📱 +234 704 917 2003</a>
+          <a href="https://linkedin.com/in/blankcoo-jnr-282254262" target="_blank">🔗 LinkedIn</a>
+          <a href="https://stemapp.online" target="_blank">🚀 stemapp.online</a>
+          <a>📍 Uyo, Akwa Ibom, Nigeria</a>
+        </div>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-green">🟢 Open to Work</span>
+      <span class="badge badge-blue">Web3 BD</span>
+      <span class="badge badge-blue">Partnerships</span>
+      <span class="badge badge-purple">Founder @ STEM</span>
+      <span class="badge badge-orange">Pre-seed Fundraising</span>
+      <span class="badge badge-blue">Remote</span>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-blue"></span>
+      README.md
+    </div>
+    <div class="section-body">
+      <p class="summary-text">
+        Results-driven Web3 BD and Partnerships professional with 3+ years of hands-on experience across DeFi, AI, infrastructure, and gaming verticals. Proven track record in lead generation, deal sourcing, ecosystem partnerships, and GTM execution across global markets including Dubai, Singapore, the US, and Europe. Currently founder and CEO of STEM — a live streaming platform that pays viewers real money — with a working prototype, complete business model, and active pre-seed raise underway. Deeply embedded in the Web3 ecosystem with direct experience managing investor pipelines, OTC deal flow, and community-led growth campaigns.
+      </p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-green"></span>
+      experience.log
+    </div>
+    <div class="section-body">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Founder & CEO</div>
+            <div class="exp-company">STEM — Stream and Earn Money</div>
+          </div>
+          <div class="exp-date">Jan 2025 – Present · Remote</div>
+        </div>
+        <div class="exp-meta">Creator Economy · FinTech · Live Streaming</div>
+        <ul class="exp-bullets">
+          <li>Building the world's first live streaming platform that pays viewers 20% of ad revenue their attention generates — withdrawable as cash via PayPal, bank transfer, or Wise.</li>
+          <li>Designed and documented a 6-stream business model with validated financial projections showing $41,704/month net profit at Month 12.</li>
+          <li>Built complete front-end prototype live at stemapp.online covering Discover, Live Stream, Wallet, and Creator Studio screens.</li>
+          <li>Currently raising $500K–$3M pre-seed. Applications active with Y Combinator S26 and Antler Nigeria simultaneously.</li>
+          <li>Identified and actively engaging a technical co-founder who built an autonomous Twitch clip detection system mapping directly onto STEM's Phase 2 AI Clip Engine.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">BD & Fundraising Lead</div>
+            <div class="exp-company">Zeno Traders</div>
+          </div>
+          <div class="exp-date">2025 – Present · Remote</div>
+        </div>
+        <div class="exp-meta">Crypto Prop Trading · SAFE + Token Warrant · Q2 2026 TGE</div>
+        <ul class="exp-bullets">
+          <li>Leading BD and fundraising for a crypto-native prop trading platform — $500K raise via SAFE + Token Warrant structure.</li>
+          <li>Managing investor pipeline, outreach, and strategic VC alignment across Web3 and traditional finance networks.</li>
+          <li>$110K already raised. Platform fully operational with live challenge infrastructure built pre-funding.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">BD & Partnerships Manager</div>
+            <div class="exp-company">Qappi (fka AlphaGuilty)</div>
+          </div>
+          <div class="exp-date">Sep 2023 – Sep 2024 · Remote</div>
+        </div>
+        <div class="exp-meta">Web3 Quest & Campaign Platform</div>
+        <ul class="exp-bullets">
+          <li>Onboarded 31K+ new quest campaigns generating 1.5M+ task completions and 143K+ new users within 10 months.</li>
+          <li>Led end-to-end client onboarding — prospecting, deal closing, and strategic account management.</li>
+          <li>Built C-level relationships with 500K+ community accounts via personalised engagement.</li>
+          <li>Drove upsells by aligning user campaigns with new promotional opportunities, improving sales productivity by 20%.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">BD & Ecosystem Partnerships</div>
+            <div class="exp-company">Ontology · Orange Protocol · Hela Labs · CoLabs · Goshen Network</div>
+          </div>
+          <div class="exp-date">2022 – 2024 · Remote</div>
+        </div>
+        <div class="exp-meta">DeFi · AI · Layer 1 & Layer 2 · GameFi</div>
+        <ul class="exp-bullets">
+          <li>Managed ecosystem partnerships, integrations, and community growth campaigns across Telegram, X, LinkedIn, and Discord.</li>
+          <li>Conducted due diligence on early-stage projects — evaluating traction, team credibility, tokenomics, and commercial viability.</li>
+          <li>Ran cold and warm outreach to crypto founders and project teams, pitching partnership models and managing deal pipelines.</li>
+          <li>Supported investor-facing BD including VC introductions, OTC deal sourcing, and strategic alignment across global markets.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-purple"></span>
+      skills.json
+    </div>
+    <div class="section-body">
+      <div class="skills-grid">
+        <span class="skill-tag"><span class="sk">●</span> Business Development</span>
+        <span class="skill-tag"><span class="sk">●</span> Partnerships</span>
+        <span class="skill-tag"><span class="sk">●</span> Deal Sourcing</span>
+        <span class="skill-tag"><span class="sk">●</span> Pipeline Management</span>
+        <span class="skill-tag"><span class="sk">●</span> GTM Strategy</span>
+        <span class="skill-tag"><span class="sk">●</span> Lead Generation</span>
+        <span class="skill-tag"><span class="sk">●</span> OTC Deal Flow</span>
+        <span class="skill-tag"><span class="sk">●</span> VC Fundraising</span>
+        <span class="skill-tag"><span class="sk">●</span> Community Growth</span>
+        <span class="skill-tag"><span class="sk">●</span> Ecosystem BD</span>
+        <span class="skill-tag"><span class="sk">●</span> Cold & Warm Outreach</span>
+        <span class="skill-tag"><span class="sk">●</span> Due Diligence</span>
+        <span class="skill-tag"><span class="sk">●</span> Token Economics</span>
+        <span class="skill-tag"><span class="sk">●</span> DeFi Protocols</span>
+        <span class="skill-tag"><span class="sk">●</span> Creator Economy</span>
+        <span class="skill-tag"><span class="sk">●</span> Notion · CRM Tools</span>
+        <span class="skill-tag"><span class="sk">●</span> Telegram · Discord</span>
+        <span class="skill-tag"><span class="sk">●</span> LinkedIn · X/Twitter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-orange"></span>
+      education.md
+    </div>
+    <div class="section-body">
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">BSc, Computer Science</div>
+          <div class="edu-sub">University of Uyo, Nigeria</div>
+        </div>
+        <div class="edu-year">2023</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">Blockchain & Crypto Trading Certificate</div>
+          <div class="edu-sub">Online Certification</div>
+        </div>
+        <div class="edu-year">2020</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">Google Digital Marketing Certification</div>
+          <div class="edu-sub">Google</div>
+        </div>
+        <div class="edu-year">2019</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NARRATIVES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-purple"></span>
+      niches_and_narratives.txt
+    </div>
+    <div class="section-body">
+      <div class="narrative-grid">
+        <span class="narrative-item">DeFi</span>
+        <span class="narrative-item">Layer 1 & Layer 2</span>
+        <span class="narrative-item">Creator Economy</span>
+        <span class="narrative-item">Live Streaming</span>
+        <span class="narrative-item">GameFi</span>
+        <span class="narrative-item">AI & Web3</span>
+        <span class="narrative-item">Consumer FinTech</span>
+        <span class="narrative-item">Infrastructure</span>
+        <span class="narrative-item">Token Launches</span>
+        <span class="narrative-item">Emerging Markets</span>
+        <span class="narrative-item">OTC Markets</span>
+        <span class="narrative-item">Pre-seed Raising</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Abel Ukpong (Blankcoo Jnr) · <a href="mailto:blankcoojnr@gmail.com">blankcoojnr@gmail.com</a> · <a href="https://stemapp.online" target="_blank">stemapp.online</a> · Uyo, Nigeria</p>
+    <p style="margin-top:6px;color:#484f58">Built with GitHub-style markdown · Open to remote opportunities</p>
+  </div>
+
+</div>
+</body>
+</html>
